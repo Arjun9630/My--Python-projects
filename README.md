@@ -3,8 +3,8 @@
 ## Introduction
 
 Welcome to my Python learning journey! This repository serves as a collection of my Python projects as I explore Python programming language!
-
-I'm excited to share my progress and showcase the wonders of programming!! You'll find my code examples and projects here!
+I'm excited to share my progress and showcase the wonders of programming!! 
+You'll find my code examples and projects here!
 
 Feel free to explore the repository!!
 
