@@ -32,7 +32,7 @@ Feel free to clone this repository to your local machine to experiment with the 
 
 
 ```bash
-git clone https://github.com/yourusername/python-programming-journey.git
+https://github.com/Arjun9630/My--Python-projects.git
 ```
 
 ---
