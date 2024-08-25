@@ -1,5 +1,5 @@
 #My Jarvis Project!
-import openai
+import openai #While integrating openai! Not required as of now!
 import speech_recognition as sr
 import methods as meth
 import time
