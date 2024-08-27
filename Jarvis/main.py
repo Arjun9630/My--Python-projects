@@ -4,7 +4,9 @@ import speech_recognition as sr
 import methods as meth
 import time
 import webbrowser as wb
+import os
 import pyautogui
+import pyperclip
 
 r = sr.Recognizer()
 
@@ -52,7 +54,16 @@ def main():# Main loop
                     pyautogui.click(714, 513)  # Move the mouse to XY coordinates and click it.
                     pyautogui.write(user_cmd, interval=0)
                     pyautogui.press('enter')
-                
+                    time.sleep(2)
+                    if("weather" in user_cmd): # Gets weather
+                        pyautogui.doubleClick(x=361, y=418)
+                        pyautogui.hotkey('ctrl', 'c')
+                        pyautogui.click(x=1893, y=20)
+                        time.sleep(1)
+                        weather_info = pyperclip.paste()
+                        weather_text = f"Now the weather is {weather_info} degree celcius"
+                        meth.jarvis_response(weather_text)
+
                 if ("jarvis open youtube" in user_cmd.lower()):
                     if ("jarvis open youtube" in user_cmd.lower()):
                         user_cmd = user_cmd.lower()
@@ -62,6 +73,12 @@ def main():# Main loop
                     pyautogui.click(706, 140)  # Move the mouse to XY coordinates and click it.
                     pyautogui.write(user_cmd, interval=0)
                     pyautogui.press('enter')
+                
+                if ("jarvis open opera browser" in user_cmd.lower()):
+                    os.startfile("C:\\Users\\arjun\\AppData\\Local\\Programs\\Opera\\opera.exe")
+
+                if ("jarvis open vmware" in user_cmd.lower()):
+                    os.startfile("C:\\Program Files (x86)\\VMware\\VMware Player\\vmplayer.exe")
 
                 # try:   #openai integration! #No Money No API Key so could'nt try!
                 #     response = openai.Completion.create(engine=model, prompt=user_cmd, max_tokens=50)
