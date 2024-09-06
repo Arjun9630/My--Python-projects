@@ -30,9 +30,4 @@ This is my first project in Python, where I have implemented a basic version of 
 To explore the projects in this repository, simply navigate to each project's directory and view the source code.  
 Feel free to clone this repository to your local machine to experiment with the code or contribute to it!
 
-
-```bash
-https://github.com/Arjun9630/My--Python-projects.git
-```
-
 ---
