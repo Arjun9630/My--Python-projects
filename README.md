@@ -26,7 +26,7 @@ This is my first project in Python, where I have implemented a basic version of 
 
 ---
 
-### Project 2: [Student Grade Management System](https://github.com/Arjun9630/My--Python-projects/tree/main/StudentGradeManagement) - Manage Student Records with Ease
+### Project 2: [Student Grade Management System](https://github.com/Arjun9630/My--Python-projects/tree/main/StudentGradeManagementSystem) - Manage Student Records with Ease
 
 **Description:**  
 This project is a Python-based **Student Grade Management System** designed to handle student data efficiently. The system allows users to add, view, search, save, and load student records along with their grades. It assigns grades based on the average marks of the students.
