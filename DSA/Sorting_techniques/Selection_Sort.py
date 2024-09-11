@@ -1,17 +1,12 @@
-# Selection Sort Technique
-num = [2,5,3,9,1,4,6,8,7]
+Element_list = [3, 5, 1, 7, 2, 6, 0, 9, 8, 11, 10, 15, 21, 20, 16, 13]
 
-def selectionSort(num_list): #sort function definition
-    for i in range(len(num_list)): #outer loop
-        min_index = i
-        for j in range(i+1,len(num_list)): #inner loop
-            if(num_list[min_index]>num_list[j]): #check if value at minimum index is greater than value at j
-                min_index = j
-        temp = num_list[i] #swapping elements
-        num_list[i] = num_list[min_index]
-        num_list[min_index] = temp
-    return num_list #returns updated list
+def selectionSort(Element_list):
+    for i in range(0, len(Element_list)):
+        for j in range(i + 1, len(Element_list)):
+            if Element_list[i] > Element_list[j]:
+                Element_list[i], Element_list[j] = Element_list[j], Element_list[i]
+    return Element_list
 
 if __name__ == '__main__':
-    num = selectionSort(num)
-    print(num)
+    Element_list = selectionSort(Element_list)
+    print(Element_list)
