@@ -75,10 +75,14 @@ def main():# Main loop
                     pyautogui.press('enter')
                 
                 if ("jarvis open opera browser" in user_cmd.lower()):
-                    os.startfile("C:\\Users\\arjun\\AppData\\Local\\Programs\\Opera\\opera.exe")
+                    os.startfile("path to the file/app")
 
                 if ("jarvis open vmware" in user_cmd.lower()):
-                    os.startfile("C:\\Program Files (x86)\\VMware\\VMware Player\\vmplayer.exe")
+                    os.startfile("path to the file/app")
+
+                # #add other app and files you need jarvis to open for you!
+                # if ("jarvis open appName" in user_cmd.lower()):
+                #     os.startfile("path to the file/app")
 
                 # try:   #openai integration! #No Money No API Key so could'nt try!
                 #     response = openai.Completion.create(engine=model, prompt=user_cmd, max_tokens=50)
