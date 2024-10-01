@@ -37,7 +37,7 @@ def jarvis_response(text):
     engine.runAndWait()  # Block until all speech has finished
     speaking = False  # Reset flag after speaking
  
-# def interrupt_jarvis_response():  ##Working on ittt!!
+# def interrupt_jarvis_response():  ###Working on ittt!!
 #     print("Press 's' to stop the speech.")
 #     while True:
 #         if keyboard.is_pressed('s') and speaking:  # Check if speaking is true
