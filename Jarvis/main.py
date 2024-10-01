@@ -1,5 +1,5 @@
 #My Jarvis Project!
-import openai #While integrating openai! Not required as of now!
+import openai
 import speech_recognition as sr
 import methods as meth
 import time
@@ -7,6 +7,7 @@ import webbrowser as wb
 import os
 import pyautogui
 import pyperclip
+# import threading  ##For interupting jarvis response!
 
 r = sr.Recognizer()
 
@@ -19,26 +20,33 @@ def speech_2_text(recognizer):
         return user_cmd
     except sr.UnknownValueError:
         print("Could not understand the audio. Please speak clearly.")
-        return ""
+        return 1
     except sr.RequestError as e:
         print(f"Google Speech Recognizer error; {e}")
-        return ""
+        return 1
 
 def start():
     time.sleep(1)  # Wait for 2 seconds
-    return speech_2_text(r)
+    user_cmd = speech_2_text(r)
+    while user_cmd == 1:
+        user_cmd = speech_2_text(r)
+    return user_cmd
 
 def init():
-    return speech_2_text(r)
+    user_cmd = speech_2_text(r)
+    while user_cmd == 1:
+        user_cmd = speech_2_text(r)
+    return user_cmd
 
 def main():# Main loop
-    # openai.api_key = "api-key"
-    # model = "gpt-3.5-turbo"
+    openai.api_key = "api_key"
+    model = "gpt-4o-mini"
 
     user_cmd = init()  # Starting 
     if user_cmd.lower() in ["jarvis", "hey jarvis", "bro"]:
         meth.jarvis_activation()
         while (True):
+            flag = 0
             user_cmd = start()
             if (user_cmd):
                 if (user_cmd.lower() == "jarvis turn off"):
@@ -63,6 +71,8 @@ def main():# Main loop
                         weather_info = pyperclip.paste()
                         weather_text = f"Now the weather is {weather_info} degree celcius"
                         meth.jarvis_response(weather_text)
+                        os.system("taskkill /f /im opera.exe >nul 2>&1")
+                    flag = 1
 
                 if ("jarvis open youtube" in user_cmd.lower()):
                     if ("jarvis open youtube" in user_cmd.lower()):
@@ -73,20 +83,40 @@ def main():# Main loop
                     pyautogui.click(706, 140)  # Move the mouse to XY coordinates and click it.
                     pyautogui.write(user_cmd, interval=0)
                     pyautogui.press('enter')
+                    flag = 1
                 
                 if ("jarvis open opera browser" in user_cmd.lower()):
                     os.startfile("C:\\Users\\arjun\\AppData\\Local\\Programs\\Opera\\opera.exe")
+                    flag = 1
 
                 if ("jarvis open vmware" in user_cmd.lower()):
                     os.startfile("C:\\Program Files (x86)\\VMware\\VMware Player\\vmplayer.exe")
+                    flag = 1
 
-                # try:   #openai integration! #No Money No API Key so could'nt try!
-                #     response = openai.Completion.create(engine=model, prompt=user_cmd, max_tokens=50)
-                #     generated_text = response.choices[0].text.strip()
-                #     print(generated_text)
-                #     meth.jarvis_response(generated_text)
-                # except openai.error.OpenAIError as e:
-                #     print(f"OpenAI API error: {e}")
+                if ("jarvis close" in user_cmd.lower() and "application" in user_cmd.lower()):
+                     text_list = user_cmd.lower().split()
+                     word_to_keep = ["opera","vmware"]
+                     app = [word for word in text_list if word in word_to_keep]
+                     if app[0] in ["opera", "vmware"]:
+                         os.system(meth.close_app_path[app[0]])
+                     else:
+                         print("No path for application available!")
+                     flag = 1
+
+                if flag == 0:
+                    try:#openAI API integration!
+                            response = openai.ChatCompletion.create(model=model,messages=[{"role": "system", "content": "You are Jarvis, Arjun's helpful assistant."},{"role": "user", "content": user_cmd}],max_tokens=350)
+                    # "choices": [{"index": 0,"message": {"role": "assistant","content": "\n\nHello there, how may I assist you today?",},"logprobs": null,"finish_reason": "stop"}],
+                            generated_text = response['choices'][0]['message']['content'].strip()
+                            print(f"\nJarvis - {generated_text}")
+                            ## Working on itt!!
+                            # stop_thread = threading.Thread(target=meth.interrupt_jarvis_response)
+                            # stop_thread.start()  #If you want to interrupt jarvis!  
+                            meth.jarvis_response(generated_text)
+                            # stop_thread.join()
+
+                    except openai.error.OpenAIError as e:
+                        print(f"OpenAI API error: {e}")
 
             else:
                 print("No command detected. Waiting for a valid command.")
