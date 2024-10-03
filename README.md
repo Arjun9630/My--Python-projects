@@ -19,11 +19,16 @@ This is my first project in Python, where I have implemented a basic version of 
   Jarvis can be activated by saying "Jarvis" or "Hey Jarvis" and deactivated by saying "Jarvis turn off."
   
 - **Web Search Functionality:**  
-  Jarvis can open Google and YouTube to perform searches based on voice input.
+  Jarvis can open Google and YouTube to perform searches based on voice input and can tell you current weather.
   
 - **Voice Feedback:**  
   Jarvis responds with voice feedback, providing a dynamic interaction experience.
 
+- **OpenAI API Integration:**  
+  Jarvis can now answer to any of your questions with this integration. (Just use your Open AI API key to access this feature!)
+
+- **Open & Close Appliction/App:**
+  Can Open & close applications like Opera and vmware! (We can add the applications that we need to open & close.)
 ---
 
 ### Project 2: [Student Grade Management System](https://github.com/Arjun9630/My--Python-projects/tree/main/StudentGradeManagementSystem) - Manage Student Records with Ease
