@@ -54,5 +54,13 @@ This project is a Python-based **Student Grade Management System** designed to h
 
 ---
 
+### Project 3: [Check Out Some Of My Other Simple Projects and DSA stuff]
+
+-  ### [Cipher Implementation](https://github.com/Arjun9630/My--Python-projects/tree/main/Cipher--Implementation) - Implementation of Cipher Techniques!
+
+-  ### [DSA](https://github.com/Arjun9630/My--Python-projects/tree/main/DSA) - DSA Track record!
+  
+---
+
 To explore the projects in this repository, simply navigate to each project's directory and view the source code.  
 Feel free to clone this repository to your local machine to experiment with the code or contribute to it!
